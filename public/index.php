@@ -1,19 +1,20 @@
 <?php
 
-require_once  '../../vendor/autoload.php';
+use App\Router;
+use App\View;
+
+require_once  __DIR__ . '/../vendor/autoload.php';
 
 
 //enable error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-session_start();
 
-define('STORAGE_PATH', '../storage/');
-define('VIEW_PATH',  '../views/');
+define('STORAGE_PATH',__DIR__ . '/../storage/');
+define('VIEW_PATH',__DIR__ .  '/../views/');
 
-use App\Router;
-use App\View;
+
 
 $router = new Router();
 

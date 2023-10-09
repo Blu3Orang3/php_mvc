@@ -1,14 +1,14 @@
 {
-  "name": "matea/basic_php_server",
+  "name": "orange/basic_php_server",
   "autoload": {
     "psr-4": {
-      "App\\": "src/app"
+      "App\\": "app/"
     }
   },
   "authors": [
     {
       "name": "BlueOrang3",
-      "email": "matealtunashvili@gmail.com"
+      "email": "NA@gmail.com"
     }
   ],
   "require": {}
