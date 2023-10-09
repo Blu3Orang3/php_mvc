@@ -2,5 +2,5 @@
 .env
 vendor
 # Ignore all files in src/storage
-src/storage/*
+storage/*
 
