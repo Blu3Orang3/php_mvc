@@ -2,5 +2,7 @@
 .env
 vendor
 # Ignore all files in src/storage
-storage/*
-
+storage
+# -------------------------------
+# Ignore all files in .vscode
+.vscode
