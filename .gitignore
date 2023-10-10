@@ -4,5 +4,4 @@ vendor
 # Ignore all files in src/storage
 storage
 # -------------------------------
-# Ignore all files in .vscode
-.vscode
+.vscode/
