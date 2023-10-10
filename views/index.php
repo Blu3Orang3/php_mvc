@@ -9,11 +9,16 @@
 </head>
 
 <body>
-  <h1>Hello <?= $name ?>, You can upload here </h1>
-  <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="myFile" />
-    <button type="submit">Upload</button>
-  </form>
+  <h1>Home Page</h1>
+  <hr />
+  <div>
+    <h2>Invoice</h2>
+    <?php if (! empty($invoice)) : ?>
+    <p>Invoice ID: <?= htmlspecialchars($invoice['id'], ENT_QUOTES)  ?></p>
+    <p>Invoice Amount: <?= htmlspecialchars($invoice['amount'], ENT_QUOTES)  ?></p>
+    <p>User: <?= htmlspecialchars($invoice['full_name'], ENT_QUOTES)  ?></p>
+    <?php endif; ?>
+  </div>
 </body>
 
 </html>
