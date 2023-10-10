@@ -4,45 +4,36 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
+use App\App;
 use App\View;
+use PDO;
+use Throwable;
+use App\Models\User;
+use App\Models\Invoice;
+use App\Models\SignUp;
 
 class HomeController
 {
   public function index(): View
   {
-    return View::make('index',['name' => 'John Doe']);
-  }
 
-  public function download()
-  {
-    $filename = 'krav-maga.txt';
-    $filePath = STORAGE_PATH . '/' . $filename;
+    $email = 'Jenna@gmail.com';
+    $name = 'Jenna';
+    $amount = 150;
 
-    if (!file_exists($filePath)) {
-      http_response_code(404);
-      echo View::make('error/404');
-      exit;
-    }
+    $userModel = new User();
+    $invoiceModel = new Invoice();
 
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
-    header('Content-Length: ' . filesize($filePath));
-
-    readfile($filePath);
-  }
-
-  public function upload()
-  {
-
-    $filePath = STORAGE_PATH . '/' . $_FILES['myFile']['name'];
-
-    move_uploaded_file(
-      $_FILES['myFile']['tmp_name'],
-      $filePath
+    $invoiceId = (new SignUp($userModel, $invoiceModel))->signUp(
+      [
+        'email' => $email,
+        'name' => $name
+      ],
+      [
+        'amount' => $amount
+      ]
     );
 
-    header('Location: /');
-
-    exit;
+    return View::make('index', ['invoice' => $invoiceModel->find($invoiceId)]);
   }
 }
