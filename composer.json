@@ -13,7 +13,8 @@
   ],
   "require": {
     "ext-pdo": "*",
-    "vlucas/phpdotenv": "^5.5"
+    "vlucas/phpdotenv": "^5.5",
+    "psr/container": "^2.0"
   },
     "autoload-dev": {
         "psr-4": {

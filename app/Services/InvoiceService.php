@@ -13,7 +13,6 @@ class InvoiceService
 
     public function process(array $customer, float $amount): bool
     {
-      
         // 1. calculate sales tax
         $tax = $this->salesTaxService->calculate($amount, $customer);
 
@@ -25,7 +24,9 @@ class InvoiceService
         // 3. send receipt
         $this->emailService->send($customer, 'receipt');
 
+        echo 'Invoice has been processed<br />';
         return true;
     }
+
 }
 
